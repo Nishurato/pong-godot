@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://cvqtnfdoucc6s"]
+
+[ext_resource type="FontFile" uid="uid://clfh5xxcxl2co" path="res://Fonts/EurostileLTProUnicode.otf" id="1_37p78"]
+
+[node name="HUD" type="CanvasLayer" unique_id=435224622]
+
+[node name="Player1Score" type="Label" parent="." unique_id=1207364034]
+offset_left = 577.0
+offset_top = 28.0
+offset_right = 617.0
+offset_bottom = 116.0
+theme_override_fonts/font = ExtResource("1_37p78")
+theme_override_font_sizes/font_size = 64
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Player2Score" type="Label" parent="." unique_id=665113252]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.016
+offset_left = 26.0
+offset_top = 28.0
+offset_right = 66.0
+offset_bottom = 104.479996
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_37p78")
+theme_override_font_sizes/font_size = 64
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 2

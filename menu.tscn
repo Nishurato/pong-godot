@@ -1,0 +1,111 @@
+[gd_scene format=3 uid="uid://dupep4gyp5eh3"]
+
+[ext_resource type="FontFile" uid="uid://clfh5xxcxl2co" path="res://Fonts/EurostileLTProUnicode.otf" id="1_lti8b"]
+[ext_resource type="Script" uid="uid://cshfo0bnmvi0w" path="res://Scripts/menu.gd" id="1_ouk20"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6fhyq"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ouk20"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mae5d"]
+
+[node name="Menu" type="CanvasLayer" unique_id=324392185]
+script = ExtResource("1_ouk20")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1084153605]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="GameName" type="Label" parent="." unique_id=760923659]
+anchors_preset = -1
+anchor_left = 0.2953125
+anchor_top = 0.3090278
+anchor_right = 0.7046875
+anchor_bottom = 0.5520833
+offset_top = -1.5258789e-05
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("1_lti8b")
+theme_override_font_sizes/font_size = 174
+text = "PONG"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="AIPlayButton" type="Button" parent="." unique_id=937563350]
+anchors_preset = -1
+anchor_left = 0.35390624
+anchor_top = 0.5763889
+anchor_right = 0.63984376
+anchor_bottom = 0.67777777
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_hover_color = Color(0.5211409, 0.52114046, 0.5211405, 1)
+theme_override_fonts/font = ExtResource("1_lti8b")
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxFlat_6fhyq")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ouk20")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_mae5d")
+text = "Play with AI"
+metadata/_edit_use_anchors_ = true
+
+[node name="Player2PlayButton" type="Button" parent="." unique_id=2097397730]
+anchors_preset = -1
+anchor_left = 0.28945312
+anchor_top = 0.68472224
+anchor_right = 0.71054685
+anchor_bottom = 0.7861111
+offset_top = -3.0517578e-05
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_hover_color = Color(0.5211409, 0.52114046, 0.5211405, 1)
+theme_override_fonts/font = ExtResource("1_lti8b")
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxFlat_6fhyq")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ouk20")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_mae5d")
+text = "Play with player 2"
+metadata/_edit_use_anchors_ = true
+
+[node name="QuitButton" type="Button" parent="." unique_id=1825178675]
+visible = false
+anchors_preset = -1
+anchor_left = 0.28945312
+anchor_top = 0.68472224
+anchor_right = 0.71054685
+anchor_bottom = 0.7861111
+offset_top = 82.99997
+offset_bottom = 83.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_hover_color = Color(0.5211409, 0.52114046, 0.5211405, 1)
+theme_override_fonts/font = ExtResource("1_lti8b")
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxFlat_6fhyq")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ouk20")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_mae5d")
+text = "Quit to desktop"
+metadata/_edit_use_anchors_ = true
+
+[node name="Hint" type="Label" parent="." unique_id=853964796]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -69.0
+offset_right = 293.0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_lti8b")
+theme_override_font_sizes/font_size = 28
+text = "Hint:
+Press R to Restart
+Press Esc to Quit to menu"
+
+[connection signal="button_down" from="AIPlayButton" to="." method="_on_ai_play_button_button_down"]
+[connection signal="button_down" from="Player2PlayButton" to="." method="_on_player_2_play_button_button_down"]
+[connection signal="button_down" from="QuitButton" to="." method="_on_quit_button_button_down"]

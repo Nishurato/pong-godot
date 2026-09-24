@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://dtchwqlmtjm83"]
+
+[ext_resource type="Script" uid="uid://c677fjkfbawon" path="res://Scripts/game.gd" id="1_7jktm"]
+[ext_resource type="PackedScene" uid="uid://bwob1fxhw7ikm" path="res://wall.tscn" id="1_80nbo"]
+[ext_resource type="PackedScene" uid="uid://jkk0i6bkruna" path="res://deviders.tscn" id="2_e2o6t"]
+[ext_resource type="PackedScene" uid="uid://cv6r2wbfv4e8f" path="res://paddle.tscn" id="3_feb5d"]
+[ext_resource type="PackedScene" uid="uid://bxevymji3t5c0" path="res://ball.tscn" id="4_fc0e3"]
+[ext_resource type="PackedScene" uid="uid://cvqtnfdoucc6s" path="res://hud.tscn" id="6_ryrav"]
+[ext_resource type="AudioStream" uid="uid://c1mfafplhoswu" path="res://SFX/bounce.wav" id="7_eow3j"]
+[ext_resource type="AudioStream" uid="uid://bj16bjgw1r0s7" path="res://SFX/appearance.wav" id="8_j5wjh"]
+
+[node name="Game" type="Node" unique_id=2012571614]
+script = ExtResource("1_7jktm")
+ball_scene = ExtResource("4_fc0e3")
+
+[node name="Wall" parent="." unique_id=1925051722 instance=ExtResource("1_80nbo")]
+position = Vector2(640, -200)
+
+[node name="Wall2" parent="." unique_id=1549354224 instance=ExtResource("1_80nbo")]
+position = Vector2(640, 920)
+scale = Vector2(-1, -1)
+
+[node name="Background" type="ColorRect" parent="." unique_id=538052915]
+z_index = -1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Deviders" parent="." unique_id=939195224 instance=ExtResource("2_e2o6t")]
+
+[node name="Paddle" parent="." unique_id=919088525 instance=ExtResource("3_feb5d")]
+position = Vector2(75, 375)
+speed = 400
+
+[node name="Paddle2" parent="." unique_id=1479629407 instance=ExtResource("3_feb5d")]
+position = Vector2(1205, 375)
+disable_mode = 1
+speed = 400
+up_key_string = "player2_up"
+down_key_string = "player2_down"
+player_or_ai = "AI"
+
+[node name="Ball" parent="." unique_id=1971426645 instance=ExtResource("4_fc0e3")]
+position = Vector2(640, 375)
+
+[node name="HUD" parent="." unique_id=435224622 instance=ExtResource("6_ryrav")]
+
+[node name="DetectionDelay" type="Timer" parent="." unique_id=229973863]
+wait_time = 0.05
+one_shot = true
+
+[node name="BounceSFX" type="AudioStreamPlayer" parent="." unique_id=721646844]
+stream = ExtResource("7_eow3j")
+
+[node name="ApperanceSFX" type="AudioStreamPlayer" parent="." unique_id=443348306]
+stream = ExtResource("8_j5wjh")
+
+[connection signal="body_entered" from="Wall" to="." method="_on_wall_body_entered"]
+[connection signal="body_entered" from="Wall2" to="." method="_on_wall_2_body_entered"]
+[connection signal="body_entered" from="Paddle" to="." method="_on_paddle_body_entered"]
+[connection signal="body_entered" from="Paddle2" to="." method="_on_paddle_2_body_entered"]
