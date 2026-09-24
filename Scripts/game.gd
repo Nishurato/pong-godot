@@ -24,6 +24,7 @@ func _ball_node_check():
 	if has_node("Ball"):
 		if $Paddle2.player_or_ai == "AI":
 			$Paddle2.ball_y_position = $Ball.position.y
+			$Paddle.ball_y_position = $Ball.position.y
 			
 		if $Ball.position.x < -100:
 			player2_score += 1

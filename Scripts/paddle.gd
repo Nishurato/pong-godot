@@ -7,10 +7,6 @@ extends Area2D
 var ball_y_position = 0
 var no_direction_movement = [false, false] # You can't move up or down
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
